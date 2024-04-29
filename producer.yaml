@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: producer
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: producer
+  template:
+    metadata:
+      labels:
+        app: producer
+    spec:
+      containers:
+      - name: producer
+        image: /usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin/producer1:first
+        ports:
+        - containerPort: 8080 # ajuste conforme necessário
+        resources:
+          limits:
+            cpu: "1" # limite de CPU em 1 unidade (pode ser um valor decimal)
+            memory: "512Mi" # limite de memória em 512 megabytes
+          requests:
+            cpu: "0.5" # pedido de CPU em 0.5 unidades
+            memory: "256Mi" # pedido de memória em 256 megabytes
+
+
+        

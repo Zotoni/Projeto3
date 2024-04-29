@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app-deployment
+spec:
+  replicas: 3 # ajuste conforme necessário
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+      - name: python-app
+        image: nome-da-sua-imagem-python:tag # substitua pelo nome e tag da sua imagem Python
+        ports:
+        - containerPort: 8080 # ajuste conforme necessário

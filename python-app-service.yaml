@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-app-service
+spec:
+  selector:
+    app: python-app
+  ports:
+    - protocol: TCP
+      port: 80 # ajuste conforme necessário
+      targetPort: 8080 # ajuste conforme necessário
+  type: NodePort # ou LoadBalancer, dependendo do ambiente
